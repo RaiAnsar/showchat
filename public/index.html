@@ -10,17 +10,34 @@
         <link rel="stylesheet" href="../source_css/styles.css">
     </head>
     <body>
-        <h1>Movie Search</h1>
         <div ng-app="myApp" ng-controller="searchBarController">
-            <input ng-model="searchBar">
+            <fieldset>
+                <h1>Movie Search</h1>
+                <form action="" method="post" enctype="multipart/form-data">
+                    <label for="Title:">Title:</label>
+                    <input type="text" id="Title" name="Title" placeholder="Search For A Movie" />
+                    <br />
+                    <label for="ID">ID: </label>
+                    <input type="ID" id="ID" name="ID" placeholder="Enter Movie ID"/>
+                    <br />
+                    <label for="Year">Year:</label>
+                    <input type="text" id="Year" name="Year" placeholder="Enter Movie Year">
+                    <br>
+                    <label for="Genre">Genre:</label>
+                    <input type="text" id="Genre" name="Genre" placeholder="Enter Movie Genre">
+                    <br>
+
+                    <input type="radio" id="r1" name="SQL_Commands" value="Insert"> Insert
+                    <input type="radio" id="r2" name="SQL_Commands" value="Update"> Update
+                    <input type="radio" id="r3" name="SQL_Commands" value="Select"> Select 
+                    <br>
+                    <br>
+                    <input type="submit" value="Execute Request"> 
+                </form>
+            </fieldset>
         </div>
 
-    <!-- <script> -->
-    <!-- </script> -->
-
-        <!--Angular Scripts -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-        <!-- <script src="../node_modules/angular/angular.min.js"></script> -->
         <script src="../node_modules/angular-route/angular-route.min.js"></script>
         <script src="../source_js/controllers.js"></script>
         <script src="../source_js/app.js"></script>

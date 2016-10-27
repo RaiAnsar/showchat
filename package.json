@@ -1,0 +1,27 @@
+{
+  "name": "411_webpage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mjschaub/showchat.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mjschaub/showchat/issues"
+  },
+  "homepage": "https://github.com/mjschaub/showchat#readme",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "connect": "^3.5.0",
+    "formidable": "^1.0.17",
+    "http": "0.0.0",
+    "mysql": "^2.11.1",
+    "serve-static": "^1.11.1"
+  }
+}
