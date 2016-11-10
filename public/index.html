@@ -8,6 +8,7 @@
         <title>Showchat</title>
         <link rel="stylesheet" href="../foundation/css/foundation.css">
         <link rel="stylesheet" href="../foundation/css/app.css">
+        <link rel="stylesheet" href="../foundation-icons/foundation-icons.css">
         <link rel="stylesheet" href="../source_css/styles.css">
     </head>
     <body>
@@ -22,53 +23,35 @@
                 <ul class="left">
                     <li class="has-form">
                         <div class="row-collapse">
-                            <div class="large-3 small-9 columns">
-                                <input type="text" placeholder="Search">
+                            <div class="large-4 medium-4 columns">
+                                <input type="text" placeholder="Look Up People, Movies, etc..." id="searchBar">
+                            </div>
+                            <div class="large-4 small-3 columns">
+                                <a href="./search.html" class="alert button expand">Search</a>
                             </div>
                         </div>
                     </li>
                 </ul>
 
-            <div class="title-bar-right">
-                <ul class="dropdown menu align-right" data-dropdown-menu="7ryajt-dropdown-menu" role="menubar">
-                <li role="menuitem" class="is-dropdown-submenu-parent opens-left" aria-haspopup="true" aria-expanded="false" aria-label="Item 1">
-                    <!-- <a tabindex="0">Settings</a> -->
-                    <!-- <ul class="menu submenu is-dropdown-submenu first-sub vertical" data-submenu="" aria-hidden="true" role="menu"> -->
-                    <!-- <li role="menuitem" class="is-submenu-item is-dropdown-submenu-item"><a href="#">Item 1A</a></li> -->
-                    <!-- <li role="menuitem" class="is-dropdown-submenu-parent is-submenu-item is-dropdown-submenu-item opens-left" aria-haspopup="true" aria-expanded="false" aria-label="Item 1B"> -->
-                    <!-- <a href="#">Item 1B</a> -->
-                    <!-- <ul class="menu submenu is-dropdown-submenu vertical" data-submenu="" aria-hidden="true" role="menu"> -->
-                    <!-- <li role="menuitem" class="is-submenu-item is-dropdown-submenu-item"><a href="#">Item 1B i</a></li> -->
-                    <!-- <li role="menuitem" class="is-submenu-item is-dropdown-submenu-item"><a href="#">Item 1B ii</a></li> -->
-                    <!-- <li role="menuitem" class="is-dropdown-submenu-parent is-submenu-item is-dropdown-submenu-item opens-left" aria-haspopup="true" aria-expanded="false" aria-label="Item 1B iii"> -->
-                    <!-- <a href="#">Item 1B iii</a> -->
-                    <!-- <ul class="menu submenu is-dropdown-submenu vertical" data-submenu="" aria-hidden="true" role="menu"> -->
-                    <!-- <li role="menuitem" class="is-submenu-item is-dropdown-submenu-item"><a href="#">Item 1B iii alpha</a></li> -->
-                    <!-- <li role="menuitem" class="is-submenu-item is-dropdown-submenu-item"><a href="#">Item 1B iii omega</a></li> -->
-                    <!-- </ul> -->
-                    <!-- </li> -->
-                    <!-- <li role="menuitem" class="is-dropdown-submenu-parent is-submenu-item is-dropdown-submenu-item opens-left" aria-haspopup="true" aria-expanded="false" aria-label="Item 1B iv"> -->
-                    <!-- <a href="#">Item 1B iv</a> -->
-                    <!-- <ul class="menu submenu is-dropdown-submenu vertical" data-submenu="" aria-hidden="true" role="menu"> -->
-                    <!-- <li role="menuitem" class="is-submenu-item is-dropdown-submenu-item"><a href="#">Item 1B iv alpha</a></li> -->
-                    <!-- </ul> -->
-                    <!-- </li> -->
-                    <!-- </ul> -->
-                    <!-- </li> -->
-                    <!-- <li role="menuitem" class="is-submenu-item is-dropdown-submenu-item"><a href="#">Item 1C</a></li> -->
-                    <!-- </ul> -->
-                    <!-- </li> -->
-                <li role="menuitem" class="is-dropdown-submenu-parent opens-left" aria-haspopup="true" aria-expanded="false" aria-label="Item 2">
-                    <a href="#">Settings</a>
-                    <ul class="menu submenu is-dropdown-submenu first-sub vertical" data-submenu="" aria-hidden="true" role="menu">
+                <!-- This is the magnifying glass -->
+                <!-- <div class="large-3 columns"> -->
+                <!-- <span class="postfix"><i class="fi-magnifying-glass"></i></span> -->
+                <!-- </div> -->
+
+                <div class="title-bar-right">
+                    <ul class="dropdown menu align-right" data-dropdown-menu="7ryajt-dropdown-menu" role="menubar">
+                        <li role="menuitem" class="is-dropdown-submenu-parent opens-left" aria-haspopup="true" aria-expanded="false" aria-label="Item 1">
+                            <li role="menuitem" class="is-dropdown-submenu-parent opens-left" aria-haspopup="true" aria-expanded="false" aria-label="Item 2">
+                <a href="#">Settings</a>
+                <ul class="menu submenu is-dropdown-submenu first-sub vertical" data-submenu="" aria-hidden="true" role="menu">
                     <li role="menuitem" class="is-submenu-item is-dropdown-submenu-item"><a href="#">Contact Information</a></li>
                     <li role="menuitem" class="is-submenu-item is-dropdown-submenu-item"><a href="#">Log Out</a></li>
-                    </ul>
-                </li>
-                <li role="menuitem"><a href="#">Messages</a></li>
-                <li role="menuitem"><a href="#">Account</a></li>
                 </ul>
-            </div>
+        </li>
+        <li role="menuitem"><a href="#">Messages</a></li>
+        <li role="menuitem"><a href="#">Account</a></li>
+                </ul>
+        </div>
             </section>
         </div>
   </div>
@@ -87,35 +70,17 @@
     </ul>
   </nav>
 
+  <!-- <a href="#" class="button">Add A New Friend</a> -->
+  <!-- <a href="#" class="button" id="postButton">Post</a> -->
+  <!-- <a href="#" class="button">Filter Posts</a> -->
+  <!-- <a href="#" class="button"></a> -->
+
     <div class="postBar">
             <textarea id="Title" name="Title" placeholder="What would to like to discuss?"/></textarea>
     </div>
 
-        <div ng-app="myApp" ng-controller="searchBarController">
-            <!-- <fieldset> -->
-            <!-- <h1>Movie Search</h1> -->
-            <!-- <form action="" method="post" enctype="multipart/form-data"> -->
-            <!-- <label for="Title:">Title:</label> -->
-            <!-- <br /> -->
-            <!-- <label for="ID">ID: </label> -->
-            <!-- <input type="ID" id="ID" name="ID" textarea placeholder="Enter Movie ID"/> -->
-            <!-- <br /> -->
-            <!-- <label for="Year">Year:</label> -->
-            <!-- <input type="text" id="Year" name="Year" placeholder="Enter Movie Year"> -->
-            <!-- <br> -->
-            <!-- <label for="Genre">Genre:</label> -->
-            <!-- <input type="text" id="Genre" name="Genre" placeholder="Enter Movie Genre"> -->
-            <!-- <br> -->
-            <!-- <input type="radio" id="r1" name="SQL_Commands" value="Insert"> Insert -->
-            <!-- <input type="radio" id="r2" name="SQL_Commands" value="Update"> Update -->
-            <!-- <input type="radio" id="r3" name="SQL_Commands" value="Select"> Select -->
-            <!-- <br> -->
-            <!-- <br> -->
-            <!-- <input type="submit" value="Execute Request"> -->
-            <!-- </form> -->
-            <!-- </fieldset> -->
-        </div>
-
+    <div ng-app="myApp" ng-controller="searchBarController">
+    </div>
 
     <!-- <div class="expanded row"> -->
     <!-- <div class="medium-3 large-2 medium-pull-9 large-pull-10 columns"> -->
@@ -126,12 +91,31 @@
     <!-- </div> -->
     <!-- </div> -->
 
+        <!-- <div class="row search"> -->
+        <!-- <div class=" small-12 columns"> -->
+        <!-- <div class="row collapse"> -->
+        <!-- <div class="small-12 large-12  columns "> -->
+        <!-- <div class=" keyword"> -->
+        <!-- <a href="#" data-dropdown="drop3"> -->
+        <!-- <div class="arrow-down"></div> -->
+        <!-- </a> -->
+        <!-- <ul id="drop3" class="f-dropdown content" data-dropdown-content style="position: absolute;  left: -99999px;"> -->
+        <!-- <li><a href="#"> Keyword</a></li> -->
+        <!-- <li><a href="#"> Keyword</a></li> -->
+        <!-- <li><a href="#">Keyword</a></li> -->
+        <!-- </ul> -->
+        <!-- </div> -->
+        <!-- <i class="fi-magnifying-glass"></i> -->
+        <!-- <input type="text" class="search-field" placeholder="your search "> -->
+        <!-- </div> -->
+        <!-- </div> -->
+        <!-- </div> -->
+        <!-- </div> -->
 
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
         <script src="../node_modules/angular-route/angular-route.min.js"></script>
         <script src="../source_js/controllers.js"></script>
         <script src="../source_js/app.js"></script>
-
 
         <!-- Other Scripts -->
         <script src="../foundation/js/vendor/jquery.js" ></script>
