@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html ng-app="myApp">
+<html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -27,13 +27,12 @@
                                 <input type="text" placeholder="Look Up People, Movies, etc..." id="searchBar">
                             </div>
                             <div class="large-4 small-3 columns">
-                                <a href="/search" class="alert button expand">Search</a>
+                                <a href="./search.html" class="alert button expand">Search</a>
                                 <!-- <a href="./search.html" class="alert button expand">Search</a> -->
                             </div>
                         </div>
-                    </li> 
-                </ul>
-                <div ng-view></div>
+                    </li>
+                </ul> 
 
                 <div class="title-bar-right">
                     <ul class="dropdown menu align-right" data-dropdown-menu="7ryajt-dropdown-menu" role="menubar">
@@ -59,11 +58,10 @@
         <!-- <br> -->
         <li><a href="movies">Movies</a></li>
         <li><a href="shows">TV Shows</a></li>
+        <li><a href="theaters">Theaters</a></li>
         <!-- <li><a href="movies">Movies</a></li> -->
         <li class="divider"></li>
         <li class="heading">Functions</li>
-        <li><a href="shows">Trending</a></li>
-        <li><a href="theaters">Theater Locations</a></li>
         <li class="divider"></li>
     </ul>
   </nav>
@@ -72,9 +70,11 @@
             <textarea id="Title" name="Title" placeholder="What would to like to discuss?"/></textarea>
     </div>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-        <script src="../node_modules/angular-route/angular-route.min.js"></script>
-        <script src="controllers.js"></script>
+    <div ng-app="myApp" ng-controller="searchBarController">
+    </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> <script src="../node_modules/angular-route/angular-route.min.js"></script>
+        <script src="../source_js/controllers.js"></script>
         <script src="../source_js/app.js"></script>
 
         <!-- Other Scripts -->

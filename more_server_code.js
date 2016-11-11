@@ -33,11 +33,12 @@ var connection = mysql.createConnection({
   user: 'root',
   password: 'meeseeks',
   database: 'ShowChat'
-})
+});
+
 connection.connect(function(err) {
   if (err) throw err
   console.log('You are now connected...')
-})
+});
 
 
 app.get('/', function(req, res){
@@ -53,8 +54,9 @@ app.get('/:userid', function(req, res) {
 
 app.get('/search', function(req, res) {
     //get profile page of someone
+    res.send(req.query);
     console.log('executed search');
-  });
+});
 
 app.get('/:movieid', function(req, res){
     //query a movie id and show general information about it
@@ -86,10 +88,9 @@ app.post('/movieFile', function(req,res) {
             }
         
         res.statusCode = 201;
-        // res.render('./search', {data:results, error:"null"});
-        // for(var i = 0; i < results.length; i++){
-        //     console.log(results[i]);
-        // }
+        for(var i = 0; i < results.length; i++){
+            console.log(results[i]);
+        }
         return res.json(results.slice(0,10));
 
         // error will be an Error if one occurred during the query
