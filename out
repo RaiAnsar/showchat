@@ -1,0 +1,18 @@
+Fri, 11 Nov 2016 18:09:21 GMT body-parser deprecated undefined extended: provide extended option at server_code.js:23:20
+/home/icuevas2/showchat/node_modules/express/lib/application.js:123
+      throw new Error('\'app.router\' is deprecated!\nPlease see the 3.x to 4.x migration guide for details on how to update your app.');
+      ^
+
+Error: 'app.router' is deprecated!
+Please see the 3.x to 4.x migration guide for details on how to update your app.
+    at EventEmitter.get (/home/icuevas2/showchat/node_modules/express/lib/application.js:123:13)
+    at Object.<anonymous> (/home/icuevas2/showchat/server_code.js:24:12)
+    at Module._compile (module.js:556:32)
+    at Object.Module._extensions..js (module.js:565:10)
+    at Module.load (module.js:473:32)
+    at tryModuleLoad (module.js:432:12)
+    at Function.Module._load (module.js:424:3)
+    at Module.runMain (module.js:590:10)
+    at run (bootstrap_node.js:394:7)
+    at startup (bootstrap_node.js:149:9)
+    at bootstrap_node.js:509:3
