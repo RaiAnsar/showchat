@@ -1,18 +1,24 @@
 <!doctype html>
 
-<html ng-app="myApp">
-    <head>
+<html>
+    <head />
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Showchat</title>
         <link rel="stylesheet" href="../foundation/css/foundation.css">
         <link rel="stylesheet" href="../foundation/css/app.css">
-        <link rel="stylesheet" href="../foundation-icons/foundation-icons.css">
         <link rel="stylesheet" href="../source_css/styles.css">
-    </head>
-    <body>
 
+        <base href="/" />
+        <script src="../node_modules/angular/angular.js"></script>
+        <script src="../node_modules/angular-route/angular-route.js"></script>
+        <script src="../source_js/controllers.js"></script>
+        <script src="../source_js/app.js"></script>
+        <!-- <script src="../source_js/services.js"></script> -->
+    </head>
+
+    <body ng-app="myApp">
     <div data-sticky-container="" class="sticky-container" style="height: 92px;">
         <div class="title-bar sticky" data-sticky="ggzydx-sticky" data-options="marginTop:0;">
         <div class="title-bar-left">
@@ -26,14 +32,14 @@
                             <div class="large-4 medium-4 columns">
                                 <input type="text" placeholder="Look Up People, Movies, etc..." id="searchBar">
                             </div>
-                            <div class="large-4 small-3 columns">
+                            <div class="large-4 small-# columns">
+                                <!-- <a href="#" class="alert button expand">Search</a> -->
                                 <a href="/search" class="alert button expand">Search</a>
-                                <!-- <a href="./search.html" class="alert button expand">Search</a> -->
                             </div>
                         </div>
                     </li> 
                 </ul>
-                <div ng-view></div>
+            <div ng-view></div>
 
                 <div class="title-bar-right">
                     <ul class="dropdown menu align-right" data-dropdown-menu="7ryajt-dropdown-menu" role="menubar">
@@ -72,9 +78,12 @@
             <textarea id="Title" name="Title" placeholder="What would to like to discuss?"/></textarea>
     </div>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-        <script src="../node_modules/angular-route/angular-route.min.js"></script>
-        <script src="controllers.js"></script>
+    <!-- Test to check if controllers work -->
+    <div class="someDiv">
+        <h4>{{test}}</h4>
+    </div>
+
+        <!-- <script src="controllers.js"></script> -->
         <script src="../source_js/app.js"></script>
 
         <!-- Other Scripts -->

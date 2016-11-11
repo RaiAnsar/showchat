@@ -1,15 +1,19 @@
-var http       = require('http');
-var fs         = require('fs');
-var formidable = require('formidable');
-var util       = require('util');
-var mysql      = require('mysql');
+var http        = require('http');
+var fs          = require('fs');
+var formidable  = require('formidable');
+var util        = require('util');
+var mysql       = require('mysql');
 var querystring = require('querystring');
-var express = require('express');
-var bodyParser = require('body-parser');
-var app = express();
+var express     = require('express');
+var bodyParser  = require('body-parser');
+var routes      = require('./source_js/routes');
+var engine      = require('consolidate');
+var path        = require('path');
+var app         = express();
 
 
 app.set('port', process.env.PORT || 8080);
+app.set('view engine', 'html');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
@@ -17,6 +21,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
+// app.use(app.router);
 
 app.use(express.static(__dirname + '/public'));
 app.use('/source_css', express.static(__dirname + '/source_css'));
@@ -24,9 +29,12 @@ app.use('/source_js', express.static(__dirname + '/source_js'));
 app.use('/foundation', express.static(__dirname + '/foundation'));
 app.use('/foundation-icons', express.static(__dirname + '/foundation-icons'));
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
-app.use('/public/partials', express.static(__dirname + '/public/partials'));
+var partialDir = __dirname + '/public/partials';
 
-
+// console.log('partialDir: ' + partialDir);
+// app.set('partials', partialDir);
+// app.engine('html', engine.mustache);
+// app.set('partials engine', 'html');
 
 var connection = mysql.createConnection({
   host: 'localhost',
@@ -39,7 +47,9 @@ connection.connect(function(err) {
   console.log('You are now connected...')
 })
 
-
+app.use(function(req, res) {
+    res.sendFile(partialDir + "/search.html");
+});
 app.get('/', function(req, res){
  res.type('text/plain');
  res.send('Showchat');
@@ -50,11 +60,6 @@ app.get('/:userid', function(req, res) {
     res.send(req.params.userid);
   });
 
-
-app.get('/search', function(req, res) {
-    //get profile page of someone
-    console.log('executed search');
-  });
 
 app.get('/:movieid', function(req, res){
     //query a movie id and show general information about it
@@ -86,12 +91,11 @@ app.post('/movieFile', function(req,res) {
             }
         
         res.statusCode = 201;
-        // res.render('./search', {data:results, error:"null"});
+        console.log("results.length: " + results.length);
         // for(var i = 0; i < results.length; i++){
         //     console.log(results[i]);
         // }
         return res.json(results.slice(0,10));
-
         // error will be an Error if one occurred during the query
         // results will contain the results of the query
         // fields will contain information about the returned results fields (if any)
@@ -121,15 +125,10 @@ app.post('/addfriend',function(res,req) {
         values: [req.body.userID1,req.body.UserID2, req.body.time, req.body.status]
     }, function (err, results, fields) {
         
-                
-
         // error will be an Error if one occurred during the query
         // results will contain the results of the query
         // fields will contain information about the returned results fields (if any)
     });
-        
-
-
 
 })
 
@@ -227,3 +226,4 @@ app.listen(app.get('port'), function(){
  console.log( 'Express started up showchat' +
  app.get('port') + '; press Ctrl-C to terminate.');
 });
+
