@@ -1,0 +1,150 @@
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Showchat</title>
+        <link rel="stylesheet" href="../foundation/css/foundation.css">
+        <link rel="stylesheet" href="../foundation/css/app.css">
+        <link rel="stylesheet" href="../source_css/styles.css">
+    </head>
+    <body>
+
+    <div data-sticky-container="" class="sticky-container" style="height: 92px;">
+        <div class="title-bar sticky" data-sticky="ggzydx-sticky" data-options="marginTop:0;">
+        <div class="title-bar-left">
+            <span class="title-bar-title">Showchat</span>
+        </div>
+
+            <section class="top-bar-section">
+                <ul class="left">
+                    <li class="has-form">
+                        <div class="row-collapse">
+                            <div class="large-3 small-9 columns">
+                                <input type="text" placeholder="Search">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+            <div class="title-bar-right">
+                <ul class="dropdown menu align-right" data-dropdown-menu="7ryajt-dropdown-menu" role="menubar">
+                <li role="menuitem" class="is-dropdown-submenu-parent opens-left" aria-haspopup="true" aria-expanded="false" aria-label="Item 1">
+                    <!-- <a tabindex="0">Settings</a> -->
+                    <!-- <ul class="menu submenu is-dropdown-submenu first-sub vertical" data-submenu="" aria-hidden="true" role="menu"> -->
+                    <!-- <li role="menuitem" class="is-submenu-item is-dropdown-submenu-item"><a href="#">Item 1A</a></li> -->
+                    <!-- <li role="menuitem" class="is-dropdown-submenu-parent is-submenu-item is-dropdown-submenu-item opens-left" aria-haspopup="true" aria-expanded="false" aria-label="Item 1B"> -->
+                    <!-- <a href="#">Item 1B</a> -->
+                    <!-- <ul class="menu submenu is-dropdown-submenu vertical" data-submenu="" aria-hidden="true" role="menu"> -->
+                    <!-- <li role="menuitem" class="is-submenu-item is-dropdown-submenu-item"><a href="#">Item 1B i</a></li> -->
+                    <!-- <li role="menuitem" class="is-submenu-item is-dropdown-submenu-item"><a href="#">Item 1B ii</a></li> -->
+                    <!-- <li role="menuitem" class="is-dropdown-submenu-parent is-submenu-item is-dropdown-submenu-item opens-left" aria-haspopup="true" aria-expanded="false" aria-label="Item 1B iii"> -->
+                    <!-- <a href="#">Item 1B iii</a> -->
+                    <!-- <ul class="menu submenu is-dropdown-submenu vertical" data-submenu="" aria-hidden="true" role="menu"> -->
+                    <!-- <li role="menuitem" class="is-submenu-item is-dropdown-submenu-item"><a href="#">Item 1B iii alpha</a></li> -->
+                    <!-- <li role="menuitem" class="is-submenu-item is-dropdown-submenu-item"><a href="#">Item 1B iii omega</a></li> -->
+                    <!-- </ul> -->
+                    <!-- </li> -->
+                    <!-- <li role="menuitem" class="is-dropdown-submenu-parent is-submenu-item is-dropdown-submenu-item opens-left" aria-haspopup="true" aria-expanded="false" aria-label="Item 1B iv"> -->
+                    <!-- <a href="#">Item 1B iv</a> -->
+                    <!-- <ul class="menu submenu is-dropdown-submenu vertical" data-submenu="" aria-hidden="true" role="menu"> -->
+                    <!-- <li role="menuitem" class="is-submenu-item is-dropdown-submenu-item"><a href="#">Item 1B iv alpha</a></li> -->
+                    <!-- </ul> -->
+                    <!-- </li> -->
+                    <!-- </ul> -->
+                    <!-- </li> -->
+                    <!-- <li role="menuitem" class="is-submenu-item is-dropdown-submenu-item"><a href="#">Item 1C</a></li> -->
+                    <!-- </ul> -->
+                    <!-- </li> -->
+                <li role="menuitem" class="is-dropdown-submenu-parent opens-left" aria-haspopup="true" aria-expanded="false" aria-label="Item 2">
+                    <a href="#">Settings</a>
+                    <ul class="menu submenu is-dropdown-submenu first-sub vertical" data-submenu="" aria-hidden="true" role="menu">
+                    <li role="menuitem" class="is-submenu-item is-dropdown-submenu-item"><a href="#">Contact Information</a></li>
+                    <li role="menuitem" class="is-submenu-item is-dropdown-submenu-item"><a href="#">Log Out</a></li>
+                    </ul>
+                </li>
+                <li role="menuitem"><a href="#">Messages</a></li>
+                <li role="menuitem"><a href="#">Account</a></li>
+                </ul>
+            </div>
+            </section>
+        </div>
+  </div>
+
+  <nav>
+    <ul class="side-nav">
+        <li class="heading">Home</li>
+        <!-- <br> -->
+        <li><a href="movies">Movies</a></li>
+        <li><a href="shows">TV Shows</a></li>
+        <li><a href="theaters">Theaters</a></li>
+        <!-- <li><a href="movies">Movies</a></li> -->
+        <li class="divider"></li>
+        <li class="heading">Groups</li>
+        <li class="divider"></li>
+    </ul>
+  </nav>
+
+    <div class="postBar">
+            <textarea id="Title" name="Title" placeholder="What would to like to discuss?"/></textarea>
+    </div>
+    <a href="#" class="button"></a>
+    <a href="#" class="button"></a>
+    <a href="#" class="button"></a>
+    <a href="#" class="button"></a>
+
+        <div ng-app="myApp" ng-controller="searchBarController">
+            <!-- <fieldset> -->
+            <!-- <h1>Movie Search</h1> -->
+            <!-- <form action="" method="post" enctype="multipart/form-data"> -->
+            <!-- <label for="Title:">Title:</label> -->
+            <!-- <br /> -->
+            <!-- <label for="ID">ID: </label> -->
+            <!-- <input type="ID" id="ID" name="ID" textarea placeholder="Enter Movie ID"/> -->
+            <!-- <br /> -->
+            <!-- <label for="Year">Year:</label> -->
+            <!-- <input type="text" id="Year" name="Year" placeholder="Enter Movie Year"> -->
+            <!-- <br> -->
+            <!-- <label for="Genre">Genre:</label> -->
+            <!-- <input type="text" id="Genre" name="Genre" placeholder="Enter Movie Genre"> -->
+            <!-- <br> -->
+            <!-- <input type="radio" id="r1" name="SQL_Commands" value="Insert"> Insert -->
+            <!-- <input type="radio" id="r2" name="SQL_Commands" value="Update"> Update -->
+            <!-- <input type="radio" id="r3" name="SQL_Commands" value="Select"> Select -->
+            <!-- <br> -->
+            <!-- <br> -->
+            <!-- <input type="submit" value="Execute Request"> -->
+            <!-- </form> -->
+            <!-- </fieldset> -->
+        </div>
+
+    <!-- <div class="expanded row"> -->
+    <!-- <div class="medium-3 large-2 medium-pull-9 large-pull-10 columns"> -->
+    <!-- <ul class="vertical menu docs-nav" id="docs-menu"> -->
+    <!-- <p class="Menu"> -->
+    <!-- <li class="docs-nav-title">Groups</li> -->
+    <!-- </ul> -->
+    <!-- </div> -->
+    <!-- </div> -->
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script src="../node_modules/angular-route/angular-route.min.js"></script>
+        <script src="../source_js/controllers.js"></script>
+        <script src="../source_js/app.js"></script>
+
+
+        <!-- Other Scripts -->
+        <script src="../foundation/js/vendor/jquery.js" ></script>
+        <script src="../foundation/js/vendor/what-input.js"></script>
+        <script src="../foundation/js/vendor/foundation.min.js"></script>
+        <!-- <script src="../foundation/js/vendor/modernizr.js"></script> -->
+        <script src="../foundation/js/app.js"></script>
+        <script src="../source_js/script.js"></script>
+        <script>
+         $(document).foundation;
+        </script>
+    </body>
+</html>
