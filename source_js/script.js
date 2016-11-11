@@ -3,12 +3,12 @@ function searchBarController($scope){
 }
 
 $(".button.alert").click(function(){
-    var searchBarVal = $("#searchBar").val;
+    var searchBarVal = $("#searchBar").val();
     var theUrl       = "movieFile";
-    console.log("checking if this function fired");
+    console.log("searchBarVal:", searchBarVal);
     $.post(theUrl,
     {
-        queryVal: "searchBarVal"
+        queryVal: searchBarVal
     });
 });
 

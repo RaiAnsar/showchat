@@ -52,16 +52,15 @@ app.get('/{movie-id}', function(req, res){
  res.send('about this movie');
 });
 
-app.post('movieFile', function(req,res) {
-    var request = console.log(req.body.queryVal);
-    console.log(request);
+app.post('/movieFile', function(req,res) {
+     var request = req.body.queryVal;
+
 	connection.query({
 	    sql: 'SELECT * FROM `title` WHERE `title` = ?',
 	  timeout: 40000, // 40s
-	  values: ['movie_name']
+	  values: [request]
 	}, function (err, results, fields) {
 		  if (err) throw err;
-      console.log(results.length);
 		// error will be an Error if one occurred during the query
   		// results will contain the results of the query
   		// fields will contain information about the returned results fields (if any)
