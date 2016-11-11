@@ -1,13 +1,21 @@
-var path    = require('path');
-var express = require('express');
-var http       = require('http');
-var fs         = require('fs');
-var formidable = require('formidable');
-var util       = require('util');
-var mysql      = require('mysql');
+var path        = require('path');
+var express     = require('express');
+var http        = require('http');
+var fs          = require('fs');
+var formidable  = require('formidable');
+var util        = require('util');
+var mysql       = require('mysql');
 var querystring = require('querystring');
+var bodyParser  = require('body-parser');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
 var app = express();
+app.use(express.json());
+app.use(express.urlencoded());
 app.use(express.static(__dirname + '/public'));
 app.use('/source_css', express.static(__dirname + '/source_css'));
 app.use('/source_js', express.static(__dirname + '/source_js'));
@@ -43,16 +51,16 @@ app.get('/{movie-id}', function(req, res){
  res.send('about this movie');
 });
 
-app.post('/index.html', function(req,res) {
-
+app.post('movieFile', function(req,res) {
+    var request = console.log(req.body.queryVal);
+    console.log(request);
 	connection.query({
-	  sql: 'SELECT * FROM `title` WHERE `title` = ?',
+	    sql: 'SELECT * FROM `title` WHERE `title` = ?',
 	  timeout: 40000, // 40s
 	  values: ['movie_name']
 	}, function (err, results, fields) {
-
 		  if (err) throw err;
-
+      console.log(results.length);
 		// error will be an Error if one occurred during the query
   		// results will contain the results of the query
   		// fields will contain information about the returned results fields (if any)

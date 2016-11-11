@@ -4,14 +4,12 @@ function searchBarController($scope){
 
 $(".button.alert").click(function(){
     var searchBarVal = $("#searchBar").val;
-    var theUrl       = "http://fa16-cs411-36.cs.illinois.edu:8080/";
+    var theUrl       = "movieFile";
+    console.log("checking if this function fired");
     $.post(theUrl,
     {
         queryVal: "searchBarVal"
     });
-    // function(){
-    //     console.log("alrighty");
-    // });
 });
 
 
