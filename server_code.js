@@ -8,14 +8,15 @@ var mysql       = require('mysql');
 var querystring = require('querystring');
 var bodyParser  = require('body-parser');
 
+var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-var app = express();
-app.use(express.json());
-app.use(express.urlencoded());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+
 app.use(express.static(__dirname + '/public'));
 app.use('/source_css', express.static(__dirname + '/source_css'));
 app.use('/source_js', express.static(__dirname + '/source_js'));
