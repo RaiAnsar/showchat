@@ -1,9 +1,7 @@
 <!doctype>
 <html ng-app=myApp>
 <head>
-<meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
@@ -15,19 +13,38 @@
   
 </head>
 
+<body>
+<div data-sticky-container="" class="sticky-container" style="height: 92px;">
+ <div class="title-bar sticky" data-sticky="ggzydx-sticky" data-options="marginTop:0;">
+        <div class="title-bar-left">
+            <span class="title-bar-title">Showchat</span>
+        </div>
 <div class="container" ng-controller="AppCtrl">
-	<h1>ShowChat</h1>
+	<h1>YO</h1>
 		<table class="table">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Action</th>
+				</tr>
+			</thead>
 			<tbody>
 				<tr>
-					<td><input class="form-control" ng-model="search.Param"></td>
-					<td><button class="btn btn-primary" ng-click="search('/partials/search.html')">Add Contact</td>
+					<td><input class="form-control" ng-model="contact.Name"></td>
+					<td><input class="form-control" ng-model="contact.Email"></td>
+					<td><button class="btn btn-primary" ng-click="addContact()">Add Contact</td>
 				</tr>
-				<tr ng-repeat="search in searchlist">
-					<td>{{search.Param}}</td>
+				<tr ng-repeat="contact in contactlist">
+					<td>{{contact.Name}}</td>
+					<td>{{contact.Email}}</td>
 				</tr>
 			</tbody>
 		</table>
+</div>
+
+
+</div>
 </div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"> </script>

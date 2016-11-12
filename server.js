@@ -9,38 +9,29 @@ var connection = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
 	password: 'meeseeks',
-	database: 'ShowChat'
+	database: 'test'
 });
 
-app.get('/search', function(req,res){
+app.get('/contactlist', function(req,res){
 	
-	var request = "%" + req.body.queryVal + "%";
+	var json = '';
 
-	connection.query({sql:'SELECT title FROM title Where title LIKE ?', timeout:20000, values: [request]}, function (err, results, fields) {
+	connection.query("SELECT * FROM Contacts", function (err, results, fields) {
  
-		if (err){
-
+		if (err)
 		    res.statusCode = 500;
-		    throw err;
-		}
 		    
-		if (results.length === 0) 
-		{
-            // We are able to set the HTTP status code on the res object
-            res.statusCode = 404;
-            return res.json('movie not found');
-        }
+		
 	      
 		res.statusCode = 201;
 	  
-		res.json(results.slice(0, Math.min(results.length-1,10)));
-			console.log(results[0]);
+		res.json(results);
     	});
 
 	
 });
 
-app.post('/search', function(req,res){
+app.post('/contactlist', function(req,res){
 	
 	
 	connection.query('INSERT INTO Contacts SET ?', [req.body], function (err, results, fields) {
