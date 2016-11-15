@@ -9,17 +9,20 @@ var connection = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
 	password: 'meeseeks',
-	database: 'test'
+	database: 'ShowChat'
 });
 
-app.get('/contactlist', function(req,res){
+app.get('/search', function(req,res){
 	
-	var json = '';
+	var request = "%" + req.body.title + "%";
 
-	connection.query("SELECT * FROM Contacts", function (err, results, fields) {
+	connection.query('SELECT t1.title, t1.year, k.kind FROM title t1, kind_type k join (select k.kind from kind_type k1) k2 on k2.id = t1.kind_id where t1.title LIKE ?', {title: request},  
+		function (err, results, fields) {
  
-		if (err)
+		if (err){
+			throw err;
 		    res.statusCode = 500;
+		}
 		    
 		
 	      
@@ -30,24 +33,6 @@ app.get('/contactlist', function(req,res){
 
 	
 });
-
-app.post('/contactlist', function(req,res){
-	
-	
-	connection.query('INSERT INTO Contacts SET ?', [req.body], function (err, results, fields) {
- 
-		if (err)
-		    res.statusCode = 500;
-		
-	      
-		res.statusCode = 201;
-	  
-		res.json(results);
-    	});
-
-	
-});
-
 
 
 app.use(express.static(__dirname + "/public"));

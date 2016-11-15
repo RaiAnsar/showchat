@@ -4,12 +4,8 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
 
 	console.log("hello");
 
-	$http.get('/contactlist').success(function(results){
-		$scope.contactlist=results;
+	$http.get('/search').success(function(results){
+		$scope.searchlist=results;
 	});
-
-	$scope.addContact = function(){
-		$http.post('/contactlist', $scope.contact);
-	};
 
 }]);
