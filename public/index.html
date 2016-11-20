@@ -27,19 +27,19 @@
 
             <section class="top-bar-section">
                 <ul class="left">
-                    <li class="has-form">
-                        <div class="row-collapse">
-                            <div class="large-4 medium-4 columns">
-                                <input type="text" placeholder="Look Up People, Movies, etc..." id="searchBar">
-                            </div>
-                            <div class="large-4 small-# columns">
-                                <!-- <a href="#" class="alert button expand">Search</a> -->
-                                <a href="/search" class="alert button expand">Search</a>
-                            </div>
-                        </div>
-                    </li> 
+                    <!-- <li class="has&#45;form"> -->
+                    <!--     <div class="row&#45;collapse"> -->
+                    <!--         <div class="large&#45;4 medium&#45;4 columns"> -->
+                    <!--             <input type="text" placeholder="Look Up People, Movies, etc..." id="searchBar"> -->
+                    <!--         </div> -->
+                    <!--         <div class="large&#45;4 small&#45;# columns"> -->
+                    <!--             <a href="#" class="alert button expand">Search</a> -->
+                    <!--             <a href="/search" class="alert button expand">Search</a> -->
+                    <!--         </div> -->
+                    <!--     </div> -->
+                    <!-- </li>  -->
                 </ul>
-            <div ng-view></div>
+            <!-- <div ng&#45;view></div> -->
 
                 <div class="title-bar-right">
                     <ul class="dropdown menu align-right" data-dropdown-menu="7ryajt-dropdown-menu" role="menubar">
@@ -65,23 +65,24 @@
         <!-- <br> -->
         <li><a href="movies">Movies</a></li>
         <li><a href="shows">TV Shows</a></li>
-        <!-- <li><a href="movies">Movies</a></li> -->
+        <li><a href="/postlist">Create Post</a></li>
+        <li><a href="/search">Search</a></li>
         <li class="divider"></li>
         <li class="heading">Functions</li>
-        <li><a href="shows">Trending</a></li>
-        <li><a href="theaters">Theater Locations</a></li>
+        <li><a href="Trending" id="Trending">Trending</a></li>
+        <li><a href="Theater" id="Theater">Theater Locations</a></li>
         <li class="divider"></li>
     </ul>
   </nav>
 
-    <div class="postBar">
-            <textarea id="Title" name="Title" placeholder="What would to like to discuss?"/></textarea>
-    </div>
+    <!-- <div class="postBar"> -->
+    <!--         <textarea id="Title" name="Title" placeholder="What would to like to discuss?"/></textarea> -->
+    <!-- </div> -->
 
     <!-- Test to check if controllers work -->
-    <div class="someDiv">
-        <h4>{{test}}</h4>
-    </div>
+    <!-- <div class="someDiv"> -->
+    <!--     <h4>{{test}}</h4> -->
+    <!-- </div> -->
 
         <!-- <script src="controllers.js"></script> -->
         <script src="../source_js/app.js"></script>
@@ -90,9 +91,9 @@
         <script src="../foundation/js/vendor/jquery.js" ></script>
         <script src="../foundation/js/vendor/what-input.js"></script>
         <script src="../foundation/js/vendor/foundation.min.js"></script>
-        <!-- <script src="../foundation/js/vendor/modernizr.js"></script> -->
         <script src="../foundation/js/app.js"></script>
         <script src="../source_js/script.js"></script>
+        <script src="../source_js/controllers.js"></script>
         <script>
          $(document).foundation;
         </script>

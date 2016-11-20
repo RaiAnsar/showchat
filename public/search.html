@@ -1,0 +1,53 @@
+<!doctype HTML>
+<html ng-app=myApp>
+<head>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384&#45;BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+    <!--  -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap&#45;theme.min.css" integrity="sha384&#45;rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
+    <!--  -->
+    <link rel="stylesheet" href="../foundation/css/foundation.css">
+    <link rel="stylesheet" href="../source_css/styles.css">
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/angular-route/angular-route.js"></script>
+    <script src="../source_js/controllers.js"></script>
+
+    <title>Showchat</title>
+</head>
+<body>
+<!-- <div data&#45;sticky&#45;container="" class="sticky&#45;container" style="height: 92px;"> -->
+<!--  <div class="title&#45;bar sticky" data&#45;sticky="ggzydx&#45;sticky" data&#45;options="marginTop:0;"> -->
+<!--         <div class="title&#45;bar&#45;left"> -->
+<!--         </div> -->
+<div class="container" ng-controller="movieSearchApp">
+	<h1>Search</h1>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Year</th>
+					<th>Type</th>
+                    <th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input class="searchForm" ng-model="movie.Title"></td>
+                    <td><input class="searchForm" ng-model="movie.Year"></td>
+                    <td><select class="searchForm" ng-options="x.name for x in data.availableOptions"  ng-model="movie.genre"></select></td>
+                    <!-- <select name="repeatSelect" id="repeatSelect" ng&#45;model="data.model"> -->
+                    <!--     <option="ng&#45;repeat" ng&#45;repeat="x for x in data.availableOptions" value="{{options.id}}">{{option.name}}</option> -->
+                    <!-- </select> -->
+					<td><a href=# id="fieldSearch" class="button round" ng-click="search()">Search</a></td>
+				</tr>
+				<tr ng-repeat="movie in movielist track by $index">
+					<td>{{movie.title}}</td>
+					<td>{{movie.production_year}}</td>
+				    <td>{{movie.kind}}</td>
+                </tr>
+			</tbody>
+		</table>
+</div>
+</div>
+</div>
+</body>
+</html>

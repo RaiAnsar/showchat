@@ -66,8 +66,26 @@ i{
 
 .button.alert{
     position: absolute;
-    margin-left: -300px;
+    left: 618px;
     height: 39px;
+}
+
+.searchForm{
+    border: 2px solid #a1a1a1;
+    border-radius: 25px;
+    outline: none;
+}
+
+.button.round{
+    border: 2px solid #a1a1a1;
+    border-radius: 25px;
+    margin-top: 10px;
+}
+
+select {
+    height: 1.85rem;
+    margin-top: 11px;
+    font-size: .6rem;
 }
 
 /* #Title{ */
