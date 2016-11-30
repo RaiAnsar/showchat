@@ -1,18 +1,24 @@
 <!doctype html>
 
 <html>
-    <head>
+    <head />
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Showchat</title>
         <link rel="stylesheet" href="../foundation/css/foundation.css">
         <link rel="stylesheet" href="../foundation/css/app.css">
-        <link rel="stylesheet" href="../foundation-icons/foundation-icons.css">
         <link rel="stylesheet" href="../source_css/styles.css">
-    </head>
-    <body>
 
+        <base href="/" />
+        <script src="../node_modules/angular/angular.js"></script>
+        <script src="../node_modules/angular-route/angular-route.js"></script>
+        <script src="../source_js/controllers.js"></script>
+        <script src="../source_js/app.js"></script>
+        <!-- <script src="../source_js/services.js"></script> -->
+    </head>
+
+    <body ng-app="myApp">
     <div data-sticky-container="" class="sticky-container" style="height: 92px;">
         <div class="title-bar sticky" data-sticky="ggzydx-sticky" data-options="marginTop:0;">
         <div class="title-bar-left">
@@ -21,22 +27,19 @@
 
             <section class="top-bar-section">
                 <ul class="left">
-                    <li class="has-form">
-                        <div class="row-collapse">
-                            <div class="large-4 medium-4 columns">
-                                <input type="text" placeholder="Look Up People, Movies, etc..." id="searchBar">
-                            </div>
-                            <div class="large-4 small-3 columns">
-                                <a href="./search.html" class="alert button expand">Search</a>
-                            </div>
-                        </div>
-                    </li>
+                    <!-- <li class="has&#45;form"> -->
+                    <!--     <div class="row&#45;collapse"> -->
+                    <!--         <div class="large&#45;4 medium&#45;4 columns"> -->
+                    <!--             <input type="text" placeholder="Look Up People, Movies, etc..." id="searchBar"> -->
+                    <!--         </div> -->
+                    <!--         <div class="large&#45;4 small&#45;# columns"> -->
+                    <!--             <a href="#" class="alert button expand">Search</a> -->
+                    <!--             <a href="/search" class="alert button expand">Search</a> -->
+                    <!--         </div> -->
+                    <!--     </div> -->
+                    <!-- </li>  -->
                 </ul>
-
-                <!-- This is the magnifying glass -->
-                <!-- <div class="large-3 columns"> -->
-                <!-- <span class="postfix"><i class="fi-magnifying-glass"></i></span> -->
-                <!-- </div> -->
+            <!-- <div ng&#45;view></div> -->
 
                 <div class="title-bar-right">
                     <ul class="dropdown menu align-right" data-dropdown-menu="7ryajt-dropdown-menu" role="menubar">
@@ -62,68 +65,35 @@
         <!-- <br> -->
         <li><a href="movies">Movies</a></li>
         <li><a href="shows">TV Shows</a></li>
-        <li><a href="theaters">Theaters</a></li>
-        <!-- <li><a href="movies">Movies</a></li> -->
+        <li><a href="/postlist">Create Post</a></li>
+        <li><a href="/search">Search</a></li>
         <li class="divider"></li>
-        <li class="heading">Groups</li>
+        <li class="heading">Functions</li>
+        <li><a href="Trending" id="Trending">Trending</a></li>
+        <li><a href="/theater">Theater Locations</a></li>
         <li class="divider"></li>
     </ul>
   </nav>
 
-  <!-- <a href="#" class="button">Add A New Friend</a> -->
-  <!-- <a href="#" class="button" id="postButton">Post</a> -->
-  <!-- <a href="#" class="button">Filter Posts</a> -->
-  <!-- <a href="#" class="button"></a> -->
-
-    <div class="postBar">
-            <textarea id="Title" name="Title" placeholder="What would to like to discuss?"/></textarea>
-    </div>
-
-    <div ng-app="myApp" ng-controller="searchBarController">
-    </div>
-
-    <!-- <div class="expanded row"> -->
-    <!-- <div class="medium-3 large-2 medium-pull-9 large-pull-10 columns"> -->
-    <!-- <ul class="vertical menu docs-nav" id="docs-menu"> -->
-    <!-- <p class="Menu"> -->
-    <!-- <li class="docs-nav-title">Groups</li> -->
-    <!-- </ul> -->
-    <!-- </div> -->
+    <!-- <div class="postBar"> -->
+    <!--         <textarea id="Title" name="Title" placeholder="What would to like to discuss?"/></textarea> -->
     <!-- </div> -->
 
-        <!-- <div class="row search"> -->
-        <!-- <div class=" small-12 columns"> -->
-        <!-- <div class="row collapse"> -->
-        <!-- <div class="small-12 large-12  columns "> -->
-        <!-- <div class=" keyword"> -->
-        <!-- <a href="#" data-dropdown="drop3"> -->
-        <!-- <div class="arrow-down"></div> -->
-        <!-- </a> -->
-        <!-- <ul id="drop3" class="f-dropdown content" data-dropdown-content style="position: absolute;  left: -99999px;"> -->
-        <!-- <li><a href="#"> Keyword</a></li> -->
-        <!-- <li><a href="#"> Keyword</a></li> -->
-        <!-- <li><a href="#">Keyword</a></li> -->
-        <!-- </ul> -->
-        <!-- </div> -->
-        <!-- <i class="fi-magnifying-glass"></i> -->
-        <!-- <input type="text" class="search-field" placeholder="your search "> -->
-        <!-- </div> -->
-        <!-- </div> -->
-        <!-- </div> -->
-        <!-- </div> -->
+    <!-- Test to check if controllers work -->
+    <!-- <div class="someDiv"> -->
+    <!--     <h4>{{test}}</h4> -->
+    <!-- </div> -->
 
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-        <script src="../node_modules/angular-route/angular-route.min.js"></script>
-        <script src="../source_js/controllers.js"></script>
+        <!-- <script src="controllers.js"></script> -->
         <script src="../source_js/app.js"></script>
 
         <!-- Other Scripts -->
         <script src="../foundation/js/vendor/jquery.js" ></script>
         <script src="../foundation/js/vendor/what-input.js"></script>
         <script src="../foundation/js/vendor/foundation.min.js"></script>
-        <!-- <script src="../foundation/js/vendor/modernizr.js"></script> -->
         <script src="../foundation/js/app.js"></script>
         <script src="../source_js/script.js"></script>
+        <!-- <script src="../source_js/controllers.js"></script> -->
         <script>
          $(document).foundation;
         </script>

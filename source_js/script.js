@@ -1,17 +1,47 @@
-function searchBarController($scope){
-    $scope.searchBar = {field:"Search For A Movie"};
-}
-
 $(".button.alert").click(function(){
-    var searchBarVal = $("#searchBar").val;
-    var theUrl       = "http://fa16-cs411-36.cs.illinois.edu:8080/";
+    var searchBarVal = $("#searchBar").val();
+    var theUrl       = "movieFile";
+    console.log("searchBarVal:", searchBarVal);
     $.post(theUrl,
     {
-        queryVal: "searchBarVal"
+        queryVal: searchBarVal
     });
-    // function(){
-    //     console.log("alrighty");
+
+    // $.get(theUrl,
+    // {
+    //     urlVal: "search"
     // });
 });
 
+$("#searchBar").keyup(function(event){
+    if(event.keyCode == 13){
+        $(".button.alert").click();
+    }
+});
 
+$("#Trending").click(function(){
+    var theUrl = "TrendingData";
+});
+
+
+$("#Trending").click(function(){
+    var theUrl = "TrendingData";
+});
+
+
+$("#Trending").click(function(){
+    var theUrl = "TrendingData";
+    $.post(theUrl,
+    {
+         queryVal: "Trending"
+    });
+});
+
+$("#Theater").click(function(){
+    var theUrl       = "TheaterData";
+    console.log("searchBarVal:", searchBarVal);
+    $.post(theUrl,
+    {
+        theaterVal: "Theater"
+    });
+});
