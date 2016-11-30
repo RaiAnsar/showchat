@@ -69,7 +69,6 @@ i{
     left: 618px;
     height: 39px;
 }
-
 .searchForm{
     border: 2px solid #a1a1a1;
     border-radius: 25px;
@@ -86,6 +85,20 @@ select {
     height: 1.85rem;
     margin-top: 11px;
     font-size: .6rem;
+}
+
+.movieSearchFields{
+    margin: 0px 0px 0px 40px;
+}
+
+.movieSearchInput{
+    margin: 0px 0px 20px 40px;
+    width: 35%;
+}
+
+#SearchForMovies{
+    margin: 0px 0px 0px 365px;
+    /* background-color: #7241FF; */
 }
 
 /* #Title{ */

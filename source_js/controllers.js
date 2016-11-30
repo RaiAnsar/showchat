@@ -23,6 +23,22 @@ myApp.controller('movieSearchApp', ['$scope', '$http', '$window', function($scop
                 };
 }]);
 
+myApp.controller('theaterSearchController', ['$scope', '$http', '$window', function($scope, $http, $window) {
+    console.log('theaterSearchController');
+    $scope.SearchMovieNearby = function(){
+        console.log('in SearchMovieNearby');
+        var movieName = $scope.MovieName;
+        var address   = $scope.Address;
+        var genre     = $scope.Genre;
+        $http.post('theaterSearch',
+        {
+            movieName: movieName,
+            address: address,
+            genre: genre
+        });
+    }
+}]);
+
 postApp.controller('postCtrl', ['$scope', '$http', '$window', function($scope, $http, $window) {
 	console.log("hello");
 	$http.get('/postlistData').success(function(results){

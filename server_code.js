@@ -10,6 +10,7 @@ var routes      = require('./source_js/routes');
 var engine      = require('consolidate');
 var path        = require('path');
 var app         = express();
+var moviefone   = require('moviefone');
 
 
 app.set('port', process.env.PORT || 8080);
@@ -84,6 +85,28 @@ app.get('/search', function(req, res){
     var urlFile     = originalUrl + ".html";
     console.log("urlFile: " + urlFile);
     res.sendFile(urlFile, { root: path.join(__dirname, "./public/")});
+});
+
+app.get('/theater', function(req, res){
+    var originalUrl = req.originalUrl;
+    var urlVal      = req.url;
+    var urlFile     = originalUrl + ".html";
+    console.log("urlFile: " + urlFile);
+    res.sendFile(urlFile, { root: path.join(__dirname, "./public/")});
+});
+
+app.post('/theaterSearch', function(req, res){
+    console.log(req.body.movieName);
+    console.log(req.body.address);
+    console.log(req.body.genre);
+
+    var movieName = req.body.movieName;
+    var address   = req.body.address;
+    var genre     = req.body.genre;
+
+    var movies = new moviefone(10001, null);
+    moviefone.getNewReleases().then(response =>{ console.log(response); })
+    .catch(err => { console.log(err); });
 });
 
 //app.get('/:userid', function(req, res) {
