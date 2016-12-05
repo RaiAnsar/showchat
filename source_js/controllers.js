@@ -35,6 +35,8 @@ myApp.controller('theaterSearchController', ['$scope', '$http', '$window', funct
             movieName: movieName,
             address: address,
             // genre: genre
+        }).success(function(results){
+            console.log("yoooo");
         });
     }
 }]);

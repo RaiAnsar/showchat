@@ -1,36 +1,55 @@
-var http        = require('http');
 var express     = require('express')
 var path        = require('path');
 var router      = express.Router(); 
 var connection  = require('./connection');
 var Twitter     = require('twitter');
+var http        = require('follow-redirects').http;
 
 var Showtimes_API_Key = 'BLS6pogu7CzmqSdffyYvMDLvgNkpUEtw';
 var showtimesUrl = 'http://api.cinepass.de/v4';
 var apiURL       = '/?apikey='+ Showtimes_API_Key;
 var showchatArg  = '/showchat';
 var finalTrending;
+var currMovies = [];
 var callback = function(response){
     var str = '';
-    console.log(response);
+    var tweetNames = [];
     response.on('data', function(chunk){
         str += chunk;
     });
 
     response.on('end', function(chunk){
-        var j = JSON.parse(str); 
-        console.log(j);
+        var movieJson = JSON.parse(str); 
+        console.log(movieJson.movies.length);
+
+        for(var i = 0; i < movieJson.movies.length; i++) {
+            var obj = movieJson.movies[i];
+            console.log(obj.title); 
+            currMovies.push(obj.title);
+        }
+
+        var jsonTweets = '';
+    
+        client.get('trends/place', {id: 23424977, exclude: 'hashtags'}, function(error, tweets, response) {
+            console.log(response.body);
+            jsonTweets = JSON.parse(response.body);
+            console.log(jsonTweets.length);
+            for(var i = 0; i < jsonTweets.length; i++) {
+                var obj = jsonTweets[i];
+                //console.log(obj); 
+                tweetNames.push(obj.name);
+                //currMovies.push(obj.title);
+            }
+            console.log(tweetNames);
+        });
+
     });
     var jsonTweets = '';
-    console.log(str);
-    client.get('trends/place', {id: 1}, function(error, tweets, response) {
-        console.log(tweets);
-        //console.log(json.decode(tweets));
-        //jsonTweets = json.decode(tweets);
-    });
-    //turn tweets into a dictionary and check if any of the movie strings is in any of the tweets
     
-    finalTrending = ''; //
+    
+    console.log("here");
+    console.log(tweetNames);
+    finalTrending = ''; 
 }
 /* Credentials necessary for using the Twitter Api*/
 // var twitterApiUrl  = 'https://api.twitter.com';
@@ -50,8 +69,8 @@ router.get('/', function(req, res){
 });
 
 router.post('/refreshTrends', function(req,res){
-            var additionalArg = '/?release_date_from=2016-11-01';
-            var requestURL    = showtimesUrl + '/movies' + additionalArg + apiURL;
+            var additionalArg = '&release_date_from=2016-11-01&countries=US';
+            var requestURL    = showtimesUrl + '/movies' + apiURL + additionalArg;
 
             console.log("requestURL: ", requestURL);
             console.log("Creating a new request");
@@ -65,16 +84,19 @@ router.post('/refreshTrends', function(req,res){
             }
 
             http.get(requestURL, callback).end(); 
-            console.log("in the postlist modularized");
-            console.log('__dirname: ' + __dirname);
-            console.log('in twitter.js');
+            //console.log("in the postlist modularized");
+            //console.log('__dirname: ' + __dirname);
+            for(var i = 0;i<9000000000;i++)
+            {}
+
+            console.log('trending movies: ', currMovies);
             res.statusCode = 201;
             if (finalTrending == null)
             {
                 //res.statusCode = 404;
                 return res.json("no trending movies right now");
             }
-            return res.json(finalTrending);
+            return res.json(currMovies);
 
 });
 
