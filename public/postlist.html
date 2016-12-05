@@ -23,30 +23,35 @@
 <!--             <span class="title&#45;bar&#45;title">Showchat</span> -->
 <!--         </div> -->
 <!--     </div> -->
-<div class="container" ng-controller="postCtrl">
-	<h1>Create Post</h1>
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Post</th>
-					<th>Action</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><input class="form-control" ng-model="post.Content" placeholder="Insert Post"></td>
-					<td><button class="btn btn-primary" ng-click="createPost()">Create Post</td>
-				</tr>
-				<!-- <tr ng&#45;repeat="post in postlist track by $index"> -->
-				<tr ng-repeat="post in postlist">
-					<td>{{post.Content}}</td>
-				</tr>
-			</tbody>
-		</table>
-</div>
-
-
-</div>
-</div>
+        <div class="container" ng-controller="postCtrl">
+            <h1>Posts</h1>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Post</th>
+                            <th>Likes</th>
+                            <th>Like</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input class="form-control" ng-model="post.Content" placeholder="Insert Post"></td>
+                            <td></td>
+                            <td></td>
+                            <td><button class="btn btn-primary" ng-click="createPost()">Create Post</td>
+                        </tr>
+                        <!-- <tr ng&#45;repeat="post in postlist track by $index"> -->
+                        <tr ng-repeat="post in postlist">
+                            <td>{{post.Content}}</td>
+                            <td>{{post.likes}}</td>
+                            <td><button class="btn btn-primary" ng-click="like(post.Content, post.likes)">Like</td>                      
+                            <td><button class="btn btn-warning" ng-click="deletePost(post.Content)">Delete Post</td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+    </div>
+    </div>
 </body>
 </html>

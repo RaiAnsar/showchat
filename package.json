@@ -24,14 +24,18 @@
     "connect": "^3.5.0",
     "consolidate": "^0.14.2",
     "express": "^4.14.0",
+    "follow-redirects": "^1.1.0",
     "formidable": "^1.0.17",
     "googleapis": "^14.2.0",
     "http": "0.0.0",
+    "loginapp": "^1.0.0",
     "moviefone": "^0.1.0",
     "mustache": "^2.3.0",
     "mysql": "^2.11.1",
+    "oauth": "^0.9.14",
     "serve-static": "^1.11.1",
     "showtimes": "^2.1.2",
-    "twitter": "^1.4.0"
+    "twitter": "^1.4.0",
+    "twitter-oauth": "0.0.6"
   }
 }

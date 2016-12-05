@@ -1,18 +1,103 @@
-Fri, 11 Nov 2016 18:09:21 GMT body-parser deprecated undefined extended: provide extended option at server_code.js:23:20
-/home/icuevas2/showchat/node_modules/express/lib/application.js:123
-      throw new Error('\'app.router\' is deprecated!\nPlease see the 3.x to 4.x migration guide for details on how to update your app.');
-      ^
+// console.log('partialDir: ' + partialDir);
+// app.set('partials', partialDir);
+// app.engine('html', engine.mustache);
+// app.set('partials engine', 'html');
 
-Error: 'app.router' is deprecated!
-Please see the 3.x to 4.x migration guide for details on how to update your app.
-    at EventEmitter.get (/home/icuevas2/showchat/node_modules/express/lib/application.js:123:13)
-    at Object.<anonymous> (/home/icuevas2/showchat/server_code.js:24:12)
-    at Module._compile (module.js:556:32)
-    at Object.Module._extensions..js (module.js:565:10)
-    at Module.load (module.js:473:32)
-    at tryModuleLoad (module.js:432:12)
-    at Function.Module._load (module.js:424:3)
-    at Module.runMain (module.js:590:10)
-    at run (bootstrap_node.js:394:7)
-    at startup (bootstrap_node.js:149:9)
-    at bootstrap_node.js:509:3
+/* For some reason, this should go before the /search app.get*/
+//app.get('/contactlist', function(req,res){
+//	var json = '';
+//    console.log("in the contactlist");
+//	connection.query("SELECT * FROM Contacts", function (err, results, fields) {
+//    if (err){
+//        res.statusCode = 500;
+//        console.log('error');
+//    }
+//    res.statusCode = 201;
+//    res.json(results);
+//    });
+//});
+
+/* For some reason, this should go before the /search app.get*/
+//app.post('/contactlist', function(req,res){
+//	connection.query('INSERT INTO Contacts SET ?', [req.body], function (err, results, fields) {
+//    if (err)
+//        res.statusCode = 500;
+//    res.statusCode = 201;
+//    res.json(results);
+//    });
+//});
+
+/*
+function lookupUser(req, res, next) {
+  // We access the ID param on the request object
+  var photoId = req.params.id;
+  // Build an SQL query to select the resource object by ID
+  var sql = ‘SELECT * FROM photo WHERE id = ?’;
+  postgres.client.query(sql, [ photoId ], function(err, results) {
+    if (err) {
+      console.error(err);
+      res.statusCode = 500;
+      return res.json({ errors: [‘Could not retrieve photo’] });
+    }
+    // No results returned mean the object is not found
+    if (results.rows.length === 0) {
+      // We are able to set the HTTP status code on the res object
+      res.statusCode = 404;
+      return res.json({ errors: [‘Photo not found’] });
+    }
+    // By attaching a Photo property to the request
+    // Its data is now made available in our handler function
+    req.photo = results.rows.slice(0,10);
+    next();
+  });
+}
+
+function lookupMovie(req, res, next) {
+  // We access the ID param on the request object
+  var photoId = req.params.id;
+  // Build an SQL query to select the resource object by ID
+  var sql = ‘SELECT * FROM photo WHERE id = ?’;
+  postgres.client.query(sql, [ photoId ], function(err, results) {
+    if (err) {
+      console.error(err);
+      res.statusCode = 500;
+      return res.json({ errors: [‘Could not retrieve photo’] });
+    }
+    // No results returned mean the object is not found
+    if (results.rows.length === 0) {
+      // We are able to set the HTTP status code on the res object
+      res.statusCode = 404;
+      return res.json({ errors: [‘Photo not found’] });
+    }
+    // By attaching a Photo property to the request
+    // Its data is now made available in our handler function
+    req.photo = results.rows.slice(0,10);
+    next();
+  });
+}
+
+function lookupShow(req, res, next) {
+  // We access the ID param on the request object
+  var photoId = req.params.id;
+  // Build an SQL query to select the resource object by ID
+  var sql = ‘SELECT * FROM photo WHERE id = ?’;
+  postgres.client.query(sql, [ photoId ], function(err, results) {
+    if (err) {
+      console.error(err);
+      res.statusCode = 500;
+      return res.json({ errors: [‘Could not retrieve photo’] });
+    }
+    // No results returned mean the object is not found
+    if (results.rows.length === 0) {
+      // We are able to set the HTTP status code on the res object
+      res.statusCode = 404;
+      return res.json({ errors: [‘Photo not found’] });
+    }
+    // By attaching a Photo property to the request
+    // Its data is now made available in our handler function
+    req.photo = results.rows.slice(0,10);
+    next();
+  });
+}
+*/
+

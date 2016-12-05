@@ -1,0 +1,48 @@
+<html ng-app=myApp>
+<head />
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Showchat</title>
+<link rel="stylesheet" href="../foundation/css/foundation.css">
+<link rel="stylesheet" href="../foundation/css/app.css">
+<link rel="stylesheet" href="../source_css/styles.css">
+<script src="../node_modules/angular/angular.js"></script>
+<script src="../node_modules/angular-route/angular-route.js"></script>
+<script src="../source_js/controllers.js"></script>
+</head>
+<body>
+    <form>
+        <div class="row column log-in-form"> 
+            <div class="container" ng-controller="loginApp">
+                <h4 class="text-center">Sign up with your email account</h4>
+                    <label>Email
+                        <input class="signupForm" type="text" placeholder="somebody@example.com" id="emailInput" ng-model="user.email">
+                    </label>
+                    <label>Password
+                        <input class="signupForm" type="password" placeholder="Password" id="passwordInput" ng-model="user.password">
+                    </label>
+                   <label>Name
+                        <input class="signupForm" type="text" placeholder="John Doe" id="passwordInput" ng-model="user.name">
+                    </label>
+                    <label>Username
+                        <input class="signupForm" type="text" placeholder="cool username" id="passwordInput" ng-model="user.userid">
+                    </label>
+                    <label>Favorite Genre
+                        <input class="signupForm" type="text" placeholder="it better be comedy" id="passwordInput" ng-model="user.genre">
+                    </label>                                    
+                   <p><a href=# id="fieldSignup" ng-click="signup1()" type="submit" class="button expanded">Sign up</a>
+                    Need to login instead?
+                    <a href=# ng-click="moveToLogin()" type="submit" class="button secondary">Log In</a></p>
+            </div>
+        </div>
+    </form>
+
+<script src="../foundation/js/vendor/jquery.js" ></script>
+<script src="../foundation/js/vendor/what-input.js"></script>
+<script src="../foundation/js/vendor/foundation.min.js"></script>
+<script src="../foundation/js/app.js"></script>
+<script>
+$(document).foundation;
+</script>
+</body></html>

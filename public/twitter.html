@@ -1,0 +1,37 @@
+<html ng-app=myApp>
+<head />
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Showchat</title>
+<link rel="stylesheet" href="../foundation/css/foundation.css">
+<link rel="stylesheet" href="../foundation/css/app.css">
+<link rel="stylesheet" href="../source_css/styles.css">
+
+
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/angular-route/angular-route.js"></script>
+    <script src="../source_js/controllers.js"></script>
+</head>
+<body>
+    <form>
+        <div class="row column log-in-form"> 
+            <div class="container" ng-controller="twitterApp">
+                <h3 class="text-center">Trending Tweets</h3>
+                <td><a href=# id="refreshTweets" class="button round" ng-click="getTweets()">Refresh</a></td>
+                    <tr ng-repeat="tweet in tweetlist track by $index">
+					    <td>{{tweet}}</td>
+					    <!--<td>{{tweet.hashtag}}</td>-->
+                    </tr>
+            </div>
+        </div>
+    </form>
+
+<script src="../foundation/js/vendor/jquery.js" ></script>
+<script src="../foundation/js/vendor/what-input.js"></script>
+<script src="../foundation/js/vendor/foundation.min.js"></script>
+<script src="../foundation/js/app.js"></script>
+<script>
+$(document).foundation;
+</script>
+</body></html>
