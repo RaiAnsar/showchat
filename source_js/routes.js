@@ -6,4 +6,5 @@ exports.partials = function(req, res){
 
 exports.index = function(req, res){
   res.render('index', {message:"Hello!!!"});
+  
 };

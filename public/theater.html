@@ -1,0 +1,54 @@
+<!doctype HTML>
+<html>
+<head>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384&#45;BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+    <!--  -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap&#45;theme.min.css" integrity="sha384&#45;rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
+    <!--  -->
+    <link rel="stylesheet" href="../foundation/css/foundation.css">
+    <link rel="stylesheet" href="../source_css/styles.css">
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/angular-route/angular-route.js"></script>
+    <script src="../source_js/controllers.js"></script>
+
+    <title>Theaters</title>
+</head>
+<body ng-app=myApp>
+<!-- <div data&#45;sticky&#45;container="" class="sticky&#45;container" style="height: 92px;"> -->
+<!--  <div class="title&#45;bar sticky" data&#45;sticky="ggzydx&#45;sticky" data&#45;options="marginTop:0;"> -->
+<!--         <div class="title&#45;bar&#45;left"> -->
+<!--         </div> -->
+    <div class="container" ng-controller="theaterSearchController">
+        <!-- <script>console.log("hello");</script> -->
+        <h1 id="TheaterId">Theater Search</h1>
+            <table class="table">
+                <!-- <thead> -->
+                <div class="movieSearchFields" id="MovieName">
+                    Movie Name
+                </div>
+                <input type="text" class="movieSearchInput" ng-model="MovieName">
+                <div class="movieSearchFields" id="StartAddress">
+                    Start Address
+                </div>
+                <input type="text" class="movieSearchInput" ng-model="Address">
+                <!-- <div class="movieSearchFields" id="Type"> -->
+                <!--     Genre -->
+                <!-- </div> -->
+                <!-- <input type="text" class="movieSearchInput" ng&#45;model="Genre"> -->
+                <!-- <button ng&#45;click="SearchMovieNearby()" class="button secondary" id="SearchForMovies"> -->
+                <button class="button" ng-click="SearchMovieNearby()" id="SearchForMovies">Search For Movies</button>
+
+                </table>
+    </div>
+    <!-- <div id="mapInfo1" class="mapDiv"> -->
+    <!--     <iframe class="mapInfo" width="600" height="450" frameborder="0" style="border:0" -->
+    <!--      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBkrymcokjrHuRvMa5EIcmrOsVqFlmMLGw&#38;q=Champaign+IL"> -->
+    <!--     </iframe> -->
+    <!-- </div> -->
+    <div class="mapDiv">
+        <iframe class="mapInfo" id="map" width="600" height="450" frameborder="0" style="border:0"
+         src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBkrymcokjrHuRvMa5EIcmrOsVqFlmMLGw&q=Champaign+IL">
+        </iframe>
+    </div>
+</body>
+</html>

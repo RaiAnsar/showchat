@@ -1,0 +1,44 @@
+<!doctype html>
+
+<html ng-app=myApp>
+<head />
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Showchat</title>
+<link rel="stylesheet" href="../foundation/css/foundation.css">
+<link rel="stylesheet" href="../foundation/css/app.css">
+<link rel="stylesheet" href="../source_css/styles.css">
+
+
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/angular-route/angular-route.js"></script>
+    <script src="../source_js/controllers.js"></script>
+</head>
+<body>
+    <form>
+        <div class="row column log-in-form"> 
+            <div class="container" ng-controller="loginApp">
+                <h4 class="text-center">Log in with your email account</h4>
+                    <label>Email
+                        <input class="loginForm" type="text" placeholder="somebody@example.com" id="emailInput" ng-model="user.email">
+                    </label>
+                    <label>Password
+                        <input class="loginForm" type="password" placeholder="Password" id="passwordInput" ng-model="user.password">
+                    </label>    
+                <p><a href=# id="fieldLogin" ng-click="login1()" type="submit" class="button expanded">Log In</a>
+                    Need to sign up instead?
+                 <a href=# ng-click="moveToSignUp()" type="submit" class="button secondary">Sign Up</a></p>
+                <p class="text-center"><a href="#">Forgot your password? Too bad</a></p>   
+            </div>
+        </div>
+    </form>
+
+<script src="../foundation/js/vendor/jquery.js" ></script>
+<script src="../foundation/js/vendor/what-input.js"></script>
+<script src="../foundation/js/vendor/foundation.min.js"></script>
+<script src="../foundation/js/app.js"></script>
+<script>
+$(document).foundation;
+</script>
+</body></html>
