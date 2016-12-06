@@ -1,18 +1,19 @@
-var myApp   = angular.module('myApp', []);
-var postApp = angular.module('postApp', []);
+var myApp      = angular.module('myApp', []);
+var theaterApp = angular.module('theaterApp', ['moment-picker']);
+var postApp    = angular.module('postApp', []);
 var info = document.getElementById('mapInfo');
 
 myApp.controller('movieSearchApp', ['$scope', '$http', '$window', function($scope, $http, $window) {
     //console.log('myApp.controller hello');
+
     $scope.search = function(){
         console.log('in the search function');
         $http.post('/search/movieFile', $scope.movie).success(function(results){
-           
             $scope.movielist = results;
         }).error(function(results){
             alert("You must enter a title");
         });
-    }
+    };
 
     $scope.data = {model: null,
                    availableOptions: [
@@ -25,10 +26,21 @@ myApp.controller('movieSearchApp', ['$scope', '$http', '$window', function($scop
                      {id: '7', name: "video movie"}
                   ]
                 };
-}]);
+    }]);
 
-myApp.controller('theaterSearchController', ['$scope', '$http', '$window', function($scope, $http, $window) {
+theaterApp.controller('theaterSearchController', ['$scope', '$http', '$window', function($scope, $http, $window) {
     console.log('theaterSearchController');
+    $scope.options = function(){
+        console.log("starting options");
+        $http.get('/theater/recentMovies').success(function(results){
+            console.log("results: ",results);
+            $scope.movieList = results;
+            return results;
+        }).error(function(results){
+            console.log("This shouldn't really happen");
+            return 0;
+        });
+    };
     $scope.SearchMovieNearby = function(){
         console.log('in SearchMovieNearby');
         var movieName = $scope.MovieName;
@@ -47,12 +59,13 @@ myApp.controller('theaterSearchController', ['$scope', '$http', '$window', funct
             console.log("initialLocation", initialLocation);
             console.log("theaterLocation", theaterLocation);
             var url = "https://www.google.com/maps/embed/v1/directions?key=AIzaSyBkrymcokjrHuRvMa5EIcmrOsVqFlmMLGw&origin="+initialLocation+"&destination="+theaterLocation;
-
             document.getElementById("map").setAttribute("src", url);
-            // document.getElementById('mapInfo1').replaceWith('<div id="mapInfo1" class="mapDiv"><iframe class="mapInfo" width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBkrymcokjrHuRvMa5EIcmrOsVqFlmMLGw&origin='+initialLocation+'&destination='+theaterLocation+'"></iframe></div>');
-
         });
-    }
+    };
+
+    $scope.logStuff = function(){
+        console.log("feedback given");
+    };
 }]);
 
 postApp.controller('postCtrl', ['$scope', '$http', '$window', function($scope, $http, $window) {

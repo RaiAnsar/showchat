@@ -105,7 +105,7 @@ router.post('/refreshTrends', function(req,res){
                         //console.log(jsonTweets.length);
                         for(var i = 0; i < jsonTweets.length; i++) {
                             var obj = jsonTweets[i];
-                            console.log(obj.name); 
+                            //console.log(obj.name); 
                             tweetNames.push(obj.name);
                             //console.log(obj.name);
                         }
