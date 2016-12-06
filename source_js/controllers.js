@@ -1,12 +1,16 @@
 var myApp   = angular.module('myApp', []);
 var postApp = angular.module('postApp', []);
+var info = document.getElementById('mapInfo');
 
 myApp.controller('movieSearchApp', ['$scope', '$http', '$window', function($scope, $http, $window) {
     //console.log('myApp.controller hello');
     $scope.search = function(){
         console.log('in the search function');
         $http.post('/search/movieFile', $scope.movie).success(function(results){
+           
             $scope.movielist = results;
+        }).error(function(results){
+            alert("You must enter a title");
         });
     }
 
@@ -36,7 +40,17 @@ myApp.controller('theaterSearchController', ['$scope', '$http', '$window', funct
             address: address,
             // genre: genre
         }).success(function(results){
-            console.log("yoooo");
+            console.log("yoooo", results);
+            $scope.tlist = results;
+            initialLocation = 'place_id:'+results.initialLocation;
+            theaterLocation = 'place_id:'+results.theaterLocation;
+            console.log("initialLocation", initialLocation);
+            console.log("theaterLocation", theaterLocation);
+            var url = "https://www.google.com/maps/embed/v1/directions?key=AIzaSyBkrymcokjrHuRvMa5EIcmrOsVqFlmMLGw&origin="+initialLocation+"&destination="+theaterLocation;
+
+            document.getElementById("map").setAttribute("src", url);
+            // document.getElementById('mapInfo1').replaceWith('<div id="mapInfo1" class="mapDiv"><iframe class="mapInfo" width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBkrymcokjrHuRvMa5EIcmrOsVqFlmMLGw&origin='+initialLocation+'&destination='+theaterLocation+'"></iframe></div>');
+
         });
     }
 }]);
@@ -106,7 +120,10 @@ myApp.controller('twitterApp', ['$scope', '$http', '$window', function($scope, $
     $scope.getTweets = function(){
         console.log('in the tweets function');
         $http.post('/twitter/refreshTrends').success(function(results){
-            $scope.tweetlist = results;
+            console.log('results: ', results.currMovies);
+            
+            $scope.tweetlist = results.currMovies;
+            //$window.location.reload();
         })
         .error(function(results){
             alert("no trending movies at the moment.");

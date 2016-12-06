@@ -17,12 +17,16 @@
     <form>
         <div class="row column log-in-form"> 
             <div class="container" ng-controller="twitterApp">
-                <h3 class="text-center">Trending Tweets</h3>
+                <h3 class="text-center">Trending Movies</h3>
                 <td><a href=# id="refreshTweets" class="button round" ng-click="getTweets()">Refresh</a></td>
-                    <tr ng-repeat="tweet in tweetlist track by $index">
-					    <td>{{tweet}}</td>
-					    <!--<td>{{tweet.hashtag}}</td>-->
+                <table class="table">
+                    <tbody>
+                    <tr ng-repeat="tweet in tweetlist"> 
+					    <td>{{tweet.title}}</td>
+					    <td><img ng-src="{{tweet.poster_image_thumbnail}}"/></td>
                     </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </form>

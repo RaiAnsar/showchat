@@ -16,40 +16,49 @@ var callback = function(response){
     var tweetNames = [];
     response.on('data', function(chunk){
         str += chunk;
+
+        client.get('trends/place', {id: 23424977, exclude: 'hashtags'}, function(error, tweets, response) {
+            //console.log(response.body);
+            jsonTweets = JSON.parse(response.body)[0].trends;
+            //console.log(jsonTweets.length);
+            for(var i = 0; i < jsonTweets.length; i++) {
+                var obj = jsonTweets[i];
+                console.log(obj.name); 
+                tweetNames.push(obj.name);
+                //console.log(obj.name);
+            }
+            
+        });
+
+
     });
 
     response.on('end', function(chunk){
         var movieJson = JSON.parse(str); 
-        console.log(movieJson.movies.length);
+        //console.log(movieJson.movies.length);
 
         for(var i = 0; i < movieJson.movies.length; i++) {
             var obj = movieJson.movies[i];
-            console.log(obj.title); 
+            //console.log(obj.title); 
             currMovies.push(obj.title);
         }
 
         var jsonTweets = '';
     
-        client.get('trends/place', {id: 23424977, exclude: 'hashtags'}, function(error, tweets, response) {
-            console.log(response.body);
-            jsonTweets = JSON.parse(response.body);
-            console.log(jsonTweets.length);
-            for(var i = 0; i < jsonTweets.length; i++) {
-                var obj = jsonTweets[i];
-                //console.log(obj); 
-                tweetNames.push(obj.name);
-                //currMovies.push(obj.title);
-            }
-            console.log(tweetNames);
-        });
+        console.log('tweetNames: ',tweetNames);
+        console.log('trending movies: ', currMovies);
+        //res.statusCode = 201;
+        if (currMovies == null)
+        {
+                //res.statusCode = 404;
+            return "no trending movies right now";
+        }
+        return currMovies;
+
+
+
 
     });
-    var jsonTweets = '';
-    
-    
-    console.log("here");
-    console.log(tweetNames);
-    finalTrending = ''; 
 }
 /* Credentials necessary for using the Twitter Api*/
 // var twitterApiUrl  = 'https://api.twitter.com';
@@ -83,21 +92,56 @@ router.post('/refreshTrends', function(req,res){
                 key: Showtimes_API_Key
             }
 
-            http.get(requestURL, callback).end(); 
-            //console.log("in the postlist modularized");
-            //console.log('__dirname: ' + __dirname);
-            for(var i = 0;i<9000000000;i++)
-            {}
+            http.get(requestURL, (response) => {
+            
+                var str = '';
+                var tweetNames = [];
+                response.on('data', function(chunk){
+                    str += chunk;
 
-            console.log('trending movies: ', currMovies);
-            res.statusCode = 201;
-            if (finalTrending == null)
-            {
-                //res.statusCode = 404;
-                return res.json("no trending movies right now");
-            }
-            return res.json(currMovies);
+                    client.get('trends/place', {id: 23424977, exclude: 'hashtags'}, function(error, tweets, response) {
+                        //console.log(response.body);
+                        jsonTweets = JSON.parse(response.body)[0].trends;
+                        //console.log(jsonTweets.length);
+                        for(var i = 0; i < jsonTweets.length; i++) {
+                            var obj = jsonTweets[i];
+                            console.log(obj.name); 
+                            tweetNames.push(obj.name);
+                            //console.log(obj.name);
+                        }
+                
+                    });
 
+
+                });
+
+                response.on('end', function(chunk){
+                    var movieJson = JSON.parse(str); 
+                    //console.log(movieJson.movies.length);
+
+                    for(var i = 0; i < movieJson.movies.length; i++) {
+                        var obj = movieJson.movies[i];
+                        //console.log(obj.title); 
+                        currMovies.push(obj);
+                    }
+
+                    var jsonTweets = '';
+                
+                    console.log('tweetNames: ',tweetNames);
+                    console.log('trending movies: ', currMovies);
+                    //res.statusCode = 201;
+                    if (currMovies == null)
+                    {
+                            //res.statusCode = 404;
+                        return "no trending movies right now";
+                    }
+                    res.statusCode = 201;
+                    return res.json({currMovies:currMovies});
+
+                });
+            }); 
+            
+            
 });
 
 var client = new Twitter({

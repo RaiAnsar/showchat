@@ -15,7 +15,7 @@ var Twitter          = require('twitter');
 var connection       = require('./source_js/connection');
 
 /* Set up for the bodyParser*/
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 8080);
 app.set('view engine', 'html');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
