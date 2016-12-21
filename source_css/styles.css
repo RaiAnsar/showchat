@@ -64,6 +64,11 @@ i{
     width: 100px;
 }
 
+/* .button.submit:hover{ */
+/*     cursor: pointer; */
+/*     background: black; */
+/* } */
+
 .button.alert{
     position: absolute;
     left: 618px;
@@ -88,16 +93,18 @@ select {
 }
 
 .movieSearchFields{
-    margin: 0px 0px 0px 40px;
+    margin: 0px 0px 0px 30px;
 }
 
 .movieSearchInput{
-    margin: 0px 0px 20px 40px;
+    margin: 0px 0px 0px 40px;
     width: 35%;
 }
 
 #SearchForMovies{
     margin: 0px 0px 0px 365px;
+    position: relative;
+    top: 204px;
     /* background-color: #7241FF; */
 }
 
@@ -106,9 +113,72 @@ select {
 /* } */
 
 .mapDiv{
-    margin: -220px 0px 0px 670px;
+    margin: -410px 0px 0px 670px;
 }
 
 #TheaterId{
     margin: 0px 0px 0px 39px;
+}
+
+#calenderForm{
+    margin: -305px 0px 0px 39px;
+    width: 474px;
+    /* position: relative; */
+    /* top: 20px; */
+}
+
+#datePicker{
+    margin: 0px 0px 0px 38px;
+}
+
+.momentCalendar{
+    margin: 0px 0px 0px 38px;
+    position: relative;
+    top: -52px;
+}
+
+.form-control{
+    width: 480px;
+    height: 41px;
+    margin: 0px 0px 2px 0px;
+    position: relative;
+    top: 0px;
+}
+
+#SelectDate{
+    /* margin: 0px 0px 0px 0px; */
+    position: relative;
+    top: -50px;
+}
+
+#SelectTime{
+    margin: 0px 0px 0px 0px;
+}
+
+#recentMoviesDropdown{
+    width: 479px;
+}
+
+#movieField{
+    margin-bottom: 8px;
+}
+
+#RecentMovies{
+    margin: 0px 0px 0px 40px;
+}
+
+#StartAddress{
+    margin: 0px 0px 0px 40px;
+}
+
+#SelectTime{
+    margin: 0px 0px 0px 0px;
+}
+
+#SelectDate{
+    margin: 0px 0px 0px 40px;
+}
+
+#addressField{
+    width: 479px;
 }

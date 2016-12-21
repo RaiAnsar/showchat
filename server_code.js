@@ -50,6 +50,7 @@ app.use('/source_js', express.static(path.join(__dirname, '/source_js')));
 app.use('/foundation', express.static(path.join(__dirname, '/foundation')));
 app.use('/foundation-icons', express.static(path.join(__dirname, '/foundation-icons')));
 app.use('/node_modules', express.static(path.join(__dirname, '/node_modules')));
+app.use('/bower_components', express.static(path.join(__dirname, '/bower_components')));
 
 
 

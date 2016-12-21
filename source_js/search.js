@@ -11,6 +11,8 @@ router.get('/', function(req, res){
     res.sendFile(urlFile, { root: path.join(__dirname, "../public/")});
 });
 
+
+
 router.post('/movieFile', function(req,res) {
     console.log("movieFile executed");
     console.log("req: " + req);
@@ -51,7 +53,6 @@ router.post('/movieFile', function(req,res) {
         
         console.log("passed the conditionals");
         res.statusCode = 201;
-        console.log("fuck this");
         var topResults = results;
         //for(var i = 0; i < topResults.length; i++){
         //    console.log(topResults[i]);

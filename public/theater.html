@@ -7,38 +7,91 @@
     <!--  -->
     <link rel="stylesheet" href="../foundation/css/foundation.css">
     <link rel="stylesheet" href="../source_css/styles.css">
-    <script src="../node_modules/angular/angular.js"></script>
+    <!-- <link rel="stylesheet" href="../node_modules/angularjs&#45;datepicker/src/css/angular&#45;datepicker.css"> -->
+    <!-- <script src="../node_modules/angular/angular.js"></script> -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
     <script src="../node_modules/angular-route/angular-route.js"></script>
     <script src="../source_js/controllers.js"></script>
+    <script src="../source_js/controllers.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.js"></script>
+    <script src="//cdn.rawgit.com/indrimuska/angular-moment-picker/master/dist/angular-moment-picker.min.js"></script>
+    <link href="//cdn.rawgit.com/indrimuska/angular-moment-picker/master/dist/angular-moment-picker.min.css" rel="stylesheet">
+    <!-- <link href="../bower_components/angular&#45;input&#45;dropdown/inputDropdownStyles.css" rel="stylesheet"> -->
+    <!-- <script src="../bower_components/angular&#45;input&#45;dropdown/inputDropdown.js"></script> -->
 
     <title>Theaters</title>
 </head>
-<body ng-app=myApp>
+<body ng-app=theaterApp>
 <!-- <div data&#45;sticky&#45;container="" class="sticky&#45;container" style="height: 92px;"> -->
 <!--  <div class="title&#45;bar sticky" data&#45;sticky="ggzydx&#45;sticky" data&#45;options="marginTop:0;"> -->
 <!--         <div class="title&#45;bar&#45;left"> -->
 <!--         </div> -->
-    <div class="container" ng-controller="theaterSearchController">
+    <div class="container" ng-controller="theaterSearchController" ng-init="options()">
         <!-- <script>console.log("hello");</script> -->
         <h1 id="TheaterId">Theater Search</h1>
             <table class="table">
                 <!-- <thead> -->
-                <div class="movieSearchFields" id="MovieName">
-                    Movie Name
-                </div>
-                <input type="text" class="movieSearchInput" ng-model="MovieName">
-                <div class="movieSearchFields" id="StartAddress">
-                    Start Address
-                </div>
-                <input type="text" class="movieSearchInput" ng-model="Address">
+                    <div class="movieSearchInput" id="MovieName">
+                        Movie Name
+                    </div>
+                    <input type="text" class="movieSearchInput" id="movieField" ng-model="MovieName">
+                    <div id="RecentMovies">
+                        <div>
+                            Recent Movies
+                        </div>
+                        <select id="recentMoviesDropdown" ng-options="x.title for x in movieList.currMovies" ng-model="recentMoviesDropdown"></select>
+                    </div>
+
+                    <div id="StartAddress">
+                        <div>
+                            Start Address
+                        </div>
+                        <input type="text"  ng-model="Address" id="addressField">
+                    </div>
+                        <div moment-picker="myDate">
+                            {{myDate}}
+                        </div>
+                    <div>
+
                 <!-- <div class="movieSearchFields" id="Type"> -->
                 <!--     Genre -->
                 <!-- </div> -->
                 <!-- <input type="text" class="movieSearchInput" ng&#45;model="Genre"> -->
                 <!-- <button ng&#45;click="SearchMovieNearby()" class="button secondary" id="SearchForMovies"> -->
+
                 <button class="button" ng-click="SearchMovieNearby()" id="SearchForMovies">Search For Movies</button>
 
-                </table>
+                <!-- <button class="button" ng&#45;click="logStuff()" id="something">feedback</button> -->
+
+                <div id="SelectDate">
+                    Select A Date
+                <div>
+                <div class="input-group"
+                            moment-picker="ctrl.datepicker"
+                            format="YYYY-MM-DD">
+                            <span class="input-group-addon">
+                                <i class="octicon octicon-calendar"></i>
+                            </span>
+                            <input class="form-control movieSearchInput"
+                                   placeholder=""
+                                   ng-model="ctrl.datepicker"
+                                   ng-model-options="{ updateOn: 'blur' }">
+                </div>
+                <div id="SelectTime">
+                    Select A Time
+                </div>
+                <div class="input-group"
+                     moment-picker="ctrl.timepicker"
+                     format="hh:mm A"
+                     autoclose="true">
+                     <span class="input-group-addon">
+                         <i class="octicon octicon-clock"></i>
+                     </span>
+                    <input class="form-control"
+                           placeholder=""
+                           ng-model="ctrl.timepicker"
+                           ng-model-options="{ updateOn: 'blur' }">
+                </div>
     </div>
     <!-- <div id="mapInfo1" class="mapDiv"> -->
     <!--     <iframe class="mapInfo" width="600" height="450" frameborder="0" style="border:0" -->
@@ -50,5 +103,10 @@
          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBkrymcokjrHuRvMa5EIcmrOsVqFlmMLGw&q=Champaign+IL">
         </iframe>
     </div>
+
+    <!-- <datepicker id="datePicker"> -->
+        <!-- <input id="calenderForm" ng&#45;model="date" type="text"/> -->
+    <!-- </datepicker> -->
+    <!-- <script src="../node_modules/angularjs&#45;datepicker/src/js/angular&#45;datepicker.js"></script> -->
 </body>
 </html>
